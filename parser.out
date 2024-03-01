@@ -1,0 +1,390 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ERROR
+    Espacios
+    Igual_igual
+    Mayor_o_igual
+    Mayor_que
+    Menor_o_igual
+    Menor_que
+    NUMBER
+    Numero
+
+Grammar
+
+Rule 0     S' -> sentencia
+Rule 1     sentencia -> variables
+Rule 2     sentencia -> ciclo_for
+Rule 3     sentencia -> funcion
+Rule 4     sentencia -> condicion_c
+Rule 5     variables -> Declaracion_variable Variable Igual Valor Punto_Y_coma
+Rule 6     ciclo_for -> CicloF Variable IN Variable Dos_puntos Parentesis_apertura Contenido Parentesis_final
+Rule 7     ciclo_for -> CicloF Variable IN Valor Dos_puntos Parentesis_apertura Contenido Parentesis_final
+Rule 8     funcion -> Definicion_funcion Variable Parentesis_apertura Variable Parentesis_final Dos_puntos
+Rule 9     funcion -> Definicion_funcion Variable Parentesis_apertura Parentesis_final Dos_puntos
+Rule 10    condicion_c -> Condicional Parentesis_apertura Variable OPERADORES Variable Parentesis_final Dos_puntos
+Rule 11    condicion_c -> Condicional Parentesis_apertura Variable OPERADORES Valor Parentesis_final Dos_puntos
+
+Terminals, with rules where they appear
+
+CicloF               : 6 7
+Condicional          : 10 11
+Contenido            : 6 7
+Declaracion_variable : 5
+Definicion_funcion   : 8 9
+Dos_puntos           : 6 7 8 9 10 11
+ERROR                : 
+Espacios             : 
+IN                   : 6 7
+Igual                : 5
+Igual_igual          : 
+Mayor_o_igual        : 
+Mayor_que            : 
+Menor_o_igual        : 
+Menor_que            : 
+NUMBER               : 
+Numero               : 
+OPERADORES           : 10 11
+Parentesis_apertura  : 6 7 8 9 10 11
+Parentesis_final     : 6 7 8 9 10 11
+Punto_Y_coma         : 5
+Valor                : 5 7 11
+Variable             : 5 6 6 7 8 8 9 10 10 11
+error                : 
+
+Nonterminals, with rules where they appear
+
+ciclo_for            : 2
+condicion_c          : 4
+funcion              : 3
+sentencia            : 0
+variables            : 1
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . sentencia
+    (1) sentencia -> . variables
+    (2) sentencia -> . ciclo_for
+    (3) sentencia -> . funcion
+    (4) sentencia -> . condicion_c
+    (5) variables -> . Declaracion_variable Variable Igual Valor Punto_Y_coma
+    (6) ciclo_for -> . CicloF Variable IN Variable Dos_puntos Parentesis_apertura Contenido Parentesis_final
+    (7) ciclo_for -> . CicloF Variable IN Valor Dos_puntos Parentesis_apertura Contenido Parentesis_final
+    (8) funcion -> . Definicion_funcion Variable Parentesis_apertura Variable Parentesis_final Dos_puntos
+    (9) funcion -> . Definicion_funcion Variable Parentesis_apertura Parentesis_final Dos_puntos
+    (10) condicion_c -> . Condicional Parentesis_apertura Variable OPERADORES Variable Parentesis_final Dos_puntos
+    (11) condicion_c -> . Condicional Parentesis_apertura Variable OPERADORES Valor Parentesis_final Dos_puntos
+
+    Declaracion_variable shift and go to state 6
+    CicloF          shift and go to state 7
+    Definicion_funcion shift and go to state 8
+    Condicional     shift and go to state 9
+
+    sentencia                      shift and go to state 1
+    variables                      shift and go to state 2
+    ciclo_for                      shift and go to state 3
+    funcion                        shift and go to state 4
+    condicion_c                    shift and go to state 5
+
+state 1
+
+    (0) S' -> sentencia .
+
+
+
+state 2
+
+    (1) sentencia -> variables .
+
+    $end            reduce using rule 1 (sentencia -> variables .)
+
+
+state 3
+
+    (2) sentencia -> ciclo_for .
+
+    $end            reduce using rule 2 (sentencia -> ciclo_for .)
+
+
+state 4
+
+    (3) sentencia -> funcion .
+
+    $end            reduce using rule 3 (sentencia -> funcion .)
+
+
+state 5
+
+    (4) sentencia -> condicion_c .
+
+    $end            reduce using rule 4 (sentencia -> condicion_c .)
+
+
+state 6
+
+    (5) variables -> Declaracion_variable . Variable Igual Valor Punto_Y_coma
+
+    Variable        shift and go to state 10
+
+
+state 7
+
+    (6) ciclo_for -> CicloF . Variable IN Variable Dos_puntos Parentesis_apertura Contenido Parentesis_final
+    (7) ciclo_for -> CicloF . Variable IN Valor Dos_puntos Parentesis_apertura Contenido Parentesis_final
+
+    Variable        shift and go to state 11
+
+
+state 8
+
+    (8) funcion -> Definicion_funcion . Variable Parentesis_apertura Variable Parentesis_final Dos_puntos
+    (9) funcion -> Definicion_funcion . Variable Parentesis_apertura Parentesis_final Dos_puntos
+
+    Variable        shift and go to state 12
+
+
+state 9
+
+    (10) condicion_c -> Condicional . Parentesis_apertura Variable OPERADORES Variable Parentesis_final Dos_puntos
+    (11) condicion_c -> Condicional . Parentesis_apertura Variable OPERADORES Valor Parentesis_final Dos_puntos
+
+    Parentesis_apertura shift and go to state 13
+
+
+state 10
+
+    (5) variables -> Declaracion_variable Variable . Igual Valor Punto_Y_coma
+
+    Igual           shift and go to state 14
+
+
+state 11
+
+    (6) ciclo_for -> CicloF Variable . IN Variable Dos_puntos Parentesis_apertura Contenido Parentesis_final
+    (7) ciclo_for -> CicloF Variable . IN Valor Dos_puntos Parentesis_apertura Contenido Parentesis_final
+
+    IN              shift and go to state 15
+
+
+state 12
+
+    (8) funcion -> Definicion_funcion Variable . Parentesis_apertura Variable Parentesis_final Dos_puntos
+    (9) funcion -> Definicion_funcion Variable . Parentesis_apertura Parentesis_final Dos_puntos
+
+    Parentesis_apertura shift and go to state 16
+
+
+state 13
+
+    (10) condicion_c -> Condicional Parentesis_apertura . Variable OPERADORES Variable Parentesis_final Dos_puntos
+    (11) condicion_c -> Condicional Parentesis_apertura . Variable OPERADORES Valor Parentesis_final Dos_puntos
+
+    Variable        shift and go to state 17
+
+
+state 14
+
+    (5) variables -> Declaracion_variable Variable Igual . Valor Punto_Y_coma
+
+    Valor           shift and go to state 18
+
+
+state 15
+
+    (6) ciclo_for -> CicloF Variable IN . Variable Dos_puntos Parentesis_apertura Contenido Parentesis_final
+    (7) ciclo_for -> CicloF Variable IN . Valor Dos_puntos Parentesis_apertura Contenido Parentesis_final
+
+    Variable        shift and go to state 19
+    Valor           shift and go to state 20
+
+
+state 16
+
+    (8) funcion -> Definicion_funcion Variable Parentesis_apertura . Variable Parentesis_final Dos_puntos
+    (9) funcion -> Definicion_funcion Variable Parentesis_apertura . Parentesis_final Dos_puntos
+
+    Variable        shift and go to state 21
+    Parentesis_final shift and go to state 22
+
+
+state 17
+
+    (10) condicion_c -> Condicional Parentesis_apertura Variable . OPERADORES Variable Parentesis_final Dos_puntos
+    (11) condicion_c -> Condicional Parentesis_apertura Variable . OPERADORES Valor Parentesis_final Dos_puntos
+
+    OPERADORES      shift and go to state 23
+
+
+state 18
+
+    (5) variables -> Declaracion_variable Variable Igual Valor . Punto_Y_coma
+
+    Punto_Y_coma    shift and go to state 24
+
+
+state 19
+
+    (6) ciclo_for -> CicloF Variable IN Variable . Dos_puntos Parentesis_apertura Contenido Parentesis_final
+
+    Dos_puntos      shift and go to state 25
+
+
+state 20
+
+    (7) ciclo_for -> CicloF Variable IN Valor . Dos_puntos Parentesis_apertura Contenido Parentesis_final
+
+    Dos_puntos      shift and go to state 26
+
+
+state 21
+
+    (8) funcion -> Definicion_funcion Variable Parentesis_apertura Variable . Parentesis_final Dos_puntos
+
+    Parentesis_final shift and go to state 27
+
+
+state 22
+
+    (9) funcion -> Definicion_funcion Variable Parentesis_apertura Parentesis_final . Dos_puntos
+
+    Dos_puntos      shift and go to state 28
+
+
+state 23
+
+    (10) condicion_c -> Condicional Parentesis_apertura Variable OPERADORES . Variable Parentesis_final Dos_puntos
+    (11) condicion_c -> Condicional Parentesis_apertura Variable OPERADORES . Valor Parentesis_final Dos_puntos
+
+    Variable        shift and go to state 29
+    Valor           shift and go to state 30
+
+
+state 24
+
+    (5) variables -> Declaracion_variable Variable Igual Valor Punto_Y_coma .
+
+    $end            reduce using rule 5 (variables -> Declaracion_variable Variable Igual Valor Punto_Y_coma .)
+
+
+state 25
+
+    (6) ciclo_for -> CicloF Variable IN Variable Dos_puntos . Parentesis_apertura Contenido Parentesis_final
+
+    Parentesis_apertura shift and go to state 31
+
+
+state 26
+
+    (7) ciclo_for -> CicloF Variable IN Valor Dos_puntos . Parentesis_apertura Contenido Parentesis_final
+
+    Parentesis_apertura shift and go to state 32
+
+
+state 27
+
+    (8) funcion -> Definicion_funcion Variable Parentesis_apertura Variable Parentesis_final . Dos_puntos
+
+    Dos_puntos      shift and go to state 33
+
+
+state 28
+
+    (9) funcion -> Definicion_funcion Variable Parentesis_apertura Parentesis_final Dos_puntos .
+
+    $end            reduce using rule 9 (funcion -> Definicion_funcion Variable Parentesis_apertura Parentesis_final Dos_puntos .)
+
+
+state 29
+
+    (10) condicion_c -> Condicional Parentesis_apertura Variable OPERADORES Variable . Parentesis_final Dos_puntos
+
+    Parentesis_final shift and go to state 34
+
+
+state 30
+
+    (11) condicion_c -> Condicional Parentesis_apertura Variable OPERADORES Valor . Parentesis_final Dos_puntos
+
+    Parentesis_final shift and go to state 35
+
+
+state 31
+
+    (6) ciclo_for -> CicloF Variable IN Variable Dos_puntos Parentesis_apertura . Contenido Parentesis_final
+
+    Contenido       shift and go to state 36
+
+
+state 32
+
+    (7) ciclo_for -> CicloF Variable IN Valor Dos_puntos Parentesis_apertura . Contenido Parentesis_final
+
+    Contenido       shift and go to state 37
+
+
+state 33
+
+    (8) funcion -> Definicion_funcion Variable Parentesis_apertura Variable Parentesis_final Dos_puntos .
+
+    $end            reduce using rule 8 (funcion -> Definicion_funcion Variable Parentesis_apertura Variable Parentesis_final Dos_puntos .)
+
+
+state 34
+
+    (10) condicion_c -> Condicional Parentesis_apertura Variable OPERADORES Variable Parentesis_final . Dos_puntos
+
+    Dos_puntos      shift and go to state 38
+
+
+state 35
+
+    (11) condicion_c -> Condicional Parentesis_apertura Variable OPERADORES Valor Parentesis_final . Dos_puntos
+
+    Dos_puntos      shift and go to state 39
+
+
+state 36
+
+    (6) ciclo_for -> CicloF Variable IN Variable Dos_puntos Parentesis_apertura Contenido . Parentesis_final
+
+    Parentesis_final shift and go to state 40
+
+
+state 37
+
+    (7) ciclo_for -> CicloF Variable IN Valor Dos_puntos Parentesis_apertura Contenido . Parentesis_final
+
+    Parentesis_final shift and go to state 41
+
+
+state 38
+
+    (10) condicion_c -> Condicional Parentesis_apertura Variable OPERADORES Variable Parentesis_final Dos_puntos .
+
+    $end            reduce using rule 10 (condicion_c -> Condicional Parentesis_apertura Variable OPERADORES Variable Parentesis_final Dos_puntos .)
+
+
+state 39
+
+    (11) condicion_c -> Condicional Parentesis_apertura Variable OPERADORES Valor Parentesis_final Dos_puntos .
+
+    $end            reduce using rule 11 (condicion_c -> Condicional Parentesis_apertura Variable OPERADORES Valor Parentesis_final Dos_puntos .)
+
+
+state 40
+
+    (6) ciclo_for -> CicloF Variable IN Variable Dos_puntos Parentesis_apertura Contenido Parentesis_final .
+
+    $end            reduce using rule 6 (ciclo_for -> CicloF Variable IN Variable Dos_puntos Parentesis_apertura Contenido Parentesis_final .)
+
+
+state 41
+
+    (7) ciclo_for -> CicloF Variable IN Valor Dos_puntos Parentesis_apertura Contenido Parentesis_final .
+
+    $end            reduce using rule 7 (ciclo_for -> CicloF Variable IN Valor Dos_puntos Parentesis_apertura Contenido Parentesis_final .)
+
